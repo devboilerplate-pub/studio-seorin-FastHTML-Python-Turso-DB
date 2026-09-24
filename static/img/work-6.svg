@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#2f5d50"/>
+  <path d="M0 450 Q150 200 300 450 T600 450 T900 450 T1200 450" fill="none" stroke="#f4efe6" stroke-width="3"/>
+  <path d="M0 450 Q150 620 300 450 T600 450 T900 450 T1200 450" fill="none" stroke="#c4a35a" stroke-width="2"/>
+  <circle cx="300" cy="450" r="10" fill="#f4efe6"/>
+  <circle cx="600" cy="450" r="10" fill="#c4a35a"/>
+  <circle cx="900" cy="450" r="10" fill="#f4efe6"/>
+  <text x="80" y="160" font-family="Georgia, serif" font-size="64" fill="#f4efe6">SOFT</text>
+  <text x="80" y="230" font-family="Georgia, serif" font-size="64" fill="#c4a35a">SIGNAL</text>
+</svg>

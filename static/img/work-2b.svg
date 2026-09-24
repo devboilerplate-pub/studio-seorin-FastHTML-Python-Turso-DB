@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#10151f"/>
+  <path d="M0 620 L180 480 L260 700 L420 300 L510 640 L700 180 L820 560 L980 240 L1200 500 L1200 900 L0 900 Z" fill="#1d2736"/>
+  <path d="M0 700 L200 560 L340 780 L520 420 L640 720 L860 300 L1040 640 L1200 480 L1200 900 L0 900 Z" fill="#c45c26" opacity="0.85"/>
+  <text x="80" y="160" font-family="Georgia, serif" font-size="48" fill="#f4efe6">after neon</text>
+</svg>
