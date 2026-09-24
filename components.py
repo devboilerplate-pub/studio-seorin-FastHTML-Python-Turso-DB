@@ -88,7 +88,7 @@ def site_footer(profile: SiteProfile):
             Div(
                 P("Elsewhere", cls="foot-label"),
                 A("Instagram", href=profile.instagram, target="_blank", rel="noreferrer"),
-                A("GitHub", href=profile.github, target="_blank", rel="noreferrer"),
+                A("GitHub", href="https://github.com", target="_blank", rel="noreferrer"),
                 cls="foot-col",
             ),
             Div(
