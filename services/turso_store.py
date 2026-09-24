@@ -22,7 +22,8 @@ class TursoStore:
         self._seed_if_empty()
 
     def _init_schema(self) -> None:
-        sql = Path("db/schema.sql").read_text(encoding="utf-8")
+        schema_path = Path(__file__).parent.parent / "db" / "schema.sql"
+        sql = schema_path.read_text(encoding="utf-8")
         for stmt in [s.strip() for s in sql.split(";") if s.strip()]:
             self.client.execute(stmt)
 

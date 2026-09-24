@@ -35,6 +35,7 @@ Google/GitHub 로그인, 좋아요, 리뷰, 관리자 콘텐츠 관리를 지원
   python3 -m venv .venv
   source .venv/bin/activate
   ```
+
 *(터미널 입력창 맨 앞에 `(.venv)`가 표시되면 성공입니다. 가상 환경 활성화 후, IDE에서 해당 인터프리터를 선택하시면 이후 새 터미널에서 자동으로 적용됩니다.)*
 
 **2. 패키지 설치 및 서버 구동**
@@ -51,11 +52,13 @@ py main.py                             # (Mac/Linux는 python3)
 - **관리자 목업 테스트**: 로그인 화면에서 `관리자(서린)로 입장` 버튼을 클릭하세요.
 
 ### 💡 패키지 설치 시 PATH 관련 경고(WARNING) 대처법
+
 `pip install` 실행 시 터미널에 텍스트가 노란색으로 표시되며 다음과 같은 경고가 발생할 수 있습니다.
+
 > `WARNING: The script uvicorn.exe is installed in 'C:\Users\...\Python...\Scripts' which is not on PATH.`
 
 - **원인 및 영향**: 패키지 실행 파일(`uvicorn`, `dotenv` 등)이 설치된 폴더가 윈도우의 시스템 환경 변수(PATH)에 등록되지 않아서 발생하는 **단순 경고**입니다. 패키지 설치는 성공적으로 완료된 것이며 치명적인 오류(Error)가 아닙니다.
-- **해결 방법**: 
+- **해결 방법**:
   본 프로젝트는 `uvicorn` 명령어를 터미널에서 직접 타이핑하지 않고 스크립트 내부(`py main.py`)에서 알아서 구동하므로, **이 경고를 완전히 무시하고 바로 프로젝트를 실행하셔도 아무 문제 없이 완벽하게 작동**합니다.
   (※ 단, 추후 터미널에서 명령어들을 직접 사용하고 싶으시다면 윈도우 시작 메뉴에서 '환경 변수'를 검색하여 **시스템 환경 변수의 `Path` 항목**에 경고창에 뜬 경로를 수동으로 추가한 뒤 터미널을 껐다 켜시면 됩니다.)
 
@@ -81,9 +84,10 @@ py main.py                             # (Mac/Linux는 python3)
 본 프로젝트는 Vercel의 서버리스(Serverless) 환경에 배포하기 적합하도록 구성되어 있습니다.
 
 ### 호환성 검토 완료 사항
+
 - **데이터베이스 (Turso DB)**: Vercel 서버리스 환경은 호출 시 파일 시스템이 초기화되므로 로컬 SQLite 파일 사용이 불가합니다. 하지만 원격 데이터베이스인 Turso를 사용하고 있어 완벽하게 호환됩니다.
 - **세션 관리**: Starlette의 `SessionMiddleware`를 사용하여 상태를 저장하지 않는(Stateless) Vercel 환경에서도 쿠키 기반으로 안정적인 세션 처리가 가능합니다.
-- **라우팅 및 정적 파일 최적화 적용 완료**: 
+- **라우팅 및 정적 파일 최적화 적용 완료**:
   - Vercel의 최신 Zero-config(rewrites) 방식으로 `vercel.json`을 수정하여 레거시 빌더 경고를 방지했습니다.
   - Vercel 환경에서 발생할 수 있는 경로 이슈를 막기 위해 `main.py` 내 `static` 폴더 참조를 절대 경로로 수정해 두었습니다.
 
@@ -100,7 +104,7 @@ py main.py                             # (Mac/Linux는 python3)
 7. `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` : GitHub OAuth 로그인 키
 8. `ADMIN_EMAILS` : 관리자 권한을 부여할 이메일 주소 목록 (콤마 분리)
 
-> **참고 (`runtime.txt` 관련)**: 
+> **참고 (`runtime.txt` 관련)**:
 > `runtime.txt` 파일에 `python-3.11`로 선언되어 있습니다. 만약 Vercel 빌드 중 버전 관련 에러가 발생할 경우, 해당 파일을 삭제하고 Vercel의 최신 기본 버전(Python 3.12)으로 배포하셔도 됩니다. (FastHTML은 Python 3.10 이상에서 문제없이 구동됩니다)
 
 ## Structure

@@ -13,6 +13,7 @@ def create_app():
         pico=False,
         default_hdrs=False,
         secret_key=settings.secret_key,
+        key_fname="/tmp/.sesskey",
         exception_handlers={
             404: lambda req, exc: Html(
                 Head(Title("404"), Link(rel="stylesheet", href="/static/css/style.css")),
